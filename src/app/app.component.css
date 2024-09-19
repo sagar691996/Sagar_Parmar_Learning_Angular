@@ -1,0 +1,46 @@
+/* Style the container to center it */
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Centers the container horizontally */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Style the heading */
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Style each biscuit */
+  .biscuit {
+    background-color: white;
+    border: 1px solid rgb(214, 210, 210);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow around the border */
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* Add hover effect to give it a more dynamic look */
+  .user-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style the toggle button */
+  .toggle-button {
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-button:hover {
+    background-color: #438a82;
+  }
+  
