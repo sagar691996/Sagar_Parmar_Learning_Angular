@@ -1,15 +1,15 @@
 <div class="container">
 <h1>{{title}} </h1>
-<div *ngFor="let user of cookieList" class="biscuit">
-    <h2>{{ user.id }} {{ user.cookiesName }}</h2>
-    <p>ID: {{ user.id }}</p>
-    <p>Manufacturer: {{ user.manufacturer }}</p>
-    <p>Address: {{ user.address}}</p> 
-    <p>Phone Number: {{ user.phoneNum}}</p>
-    <p>Availability: {{ user.isInStock ? 'In Stock' : 'Out Of Stock'}}</p>
+<div *ngFor="let cookies of cookieList" class="biscuit">
+    <h2>{{ cookies.id }} {{ cookies.cookiesName }}</h2>
+    <p>ID: {{ cookies.id }}</p>
+    <p>Manufacturer: {{ cookies.manufacturer }}</p>
+    <p>Address: {{ cookies.address}}</p> 
+    <p>Phone Number: {{ cookies.phoneNum}}</p>
+    <p>Availability: {{ cookies.isInStock ? 'In Stock' : 'Out Of Stock'}}</p>
 
     <!-- button to toggle admin status -->
-    <button (click)="toggleInStockStatus(user)" class="toggle-button">
+    <button (click)="toggleInStockStatus(cookies)" class="toggle-button">
     Available
     </button>
 </div>

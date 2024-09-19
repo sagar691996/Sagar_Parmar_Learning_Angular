@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Cookies } from './Shared/Modules/user';
+import { Cookies } from './Shared/Modules/cookies';
 import { CommonModule} from "@angular/common";
 
 
@@ -27,7 +27,7 @@ export class AppComponent {
   ];
 
   // Function that toggles the in-stock status of a cookie
-  toggleInStockStatus(user: Cookies): void {
-    user.isInStock = !user.isInStock;
+  toggleInStockStatus(cookies: Cookies): void {
+    cookies.isInStock = !cookies.isInStock;
   }
 }
