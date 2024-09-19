@@ -15,7 +15,7 @@ import { CommonModule} from "@angular/common";
 })
 
 export class AppComponent {
-  title: string = 'Top 6 Cookies in USA';
+  title: string = 'Top 6 Famous Cookies in USA';
 
   cookieList: Cookies[] = [
     { id: 1, cookiesName: "Oreo", manufacturer: "Mondelez International", address: "905 West Fulton Market, Chicago, IL 60607, USA", phoneNum: "+1 (855) 535-5648", isInStock: false },
