@@ -1,0 +1,13 @@
+<!-- flags-list.component.html -->
+<div class="flags-list">
+  
+    <div *ngFor="let flag of flagList">
+
+      <h3>{{ flag.country }}</h3>
+      <p>Id: {{flag.id}}</p>
+      <p>Material: {{ flag.material }}</p>
+      <p>Size: {{ flag.size }}</p>
+      <p>Status: {{ flag.isInStock ? 'In Stock' : 'Out of Stock' }}</p>
+    </div>
+  </div>
+  
