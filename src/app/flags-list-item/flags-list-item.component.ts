@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {Flags} from "../Shared/Modules/flags";
 import {NgIf} from "@angular/common";
 
+
 @Component({
   selector: 'app-flags-item',
   standalone: true,

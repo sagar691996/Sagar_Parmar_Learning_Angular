@@ -1,8 +1,16 @@
 
+<div class="flags-list">
+  
+    <div *ngFor="let flag of flagList" >
 
-  <app-flags-item>{{flagList[0].country}}</app-flags-item>
-  <app-flags-item>{{flagList[1].country}}</app-flags-item>
-  <app-flags-item>{{flagList[2].country}}</app-flags-item>
-  <app-flags-item>{{flagList[3].country}}</app-flags-item>
+      <h3>{{ flag.country }}</h3>
+      <p>Id: {{flag.id}}</p>
+      <p>Material: {{ flag.material }}</p>
+      <p>Size: {{ flag.size }}</p>
+      <p>Status: {{ flag.isInStock}}</p>
+    </div>
+    <div>
+    </div>
+  </div>
   
   
