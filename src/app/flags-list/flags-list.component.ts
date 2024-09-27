@@ -31,6 +31,10 @@ export class FlagsListComponent {
     selectFlag(flag: Flags): void {
       this.selectedFlag = flag;
     }
+
+    toggleInStockStatus(flags: Flags): void {
+      flags.isInStock = !flags.isInStock;
+    }
   
 
 }
