@@ -1,19 +1,20 @@
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
-import { NgForOf } from '@angular/common';
+import { Component } from '@angular/core';
 import { Flags } from '../Shared/Modules/flags';
-import { FlagsListItemComponent } from '../flags-list-item/flags-list-item.component';
-import { NgStyle } from '@angular/common';
+import {NgForOf} from "@angular/common";
+import { FlagsListComponent } from '../flags-list-item/flags-list-item.component';
 
 @Component({
   selector: 'app-flags-list',
   standalone: true,
-  imports: [NgForOf, FlagsListItemComponent, NgStyle],
+  imports: [
+    NgForOf,
+    NgForOf,
+    FlagsListComponent,
+  ],
   templateUrl: './flags-list.component.html',
-  styleUrls: ['./flags-list.component.css'],
-  schemas: [NO_ERRORS_SCHEMA] // Optionally suppresses schema validation
+  styleUrl: './flags-list.component.scss'
 })
-export class FlagsListComponent {
-  // Rest of the component code...
+export class FlagsListsComponent {
   title: string = 'National Flags';
 
   displayedColumns: string[] = ['id', 'country', 'material', 'size', 'isInStock'];
@@ -26,13 +27,11 @@ export class FlagsListComponent {
     { id: 5, country: 'Japan', material: 'Paper', size: '1.2 meter', isInStock: true },
   ];
 
-  selectedFlag?: Flags;
-
-  selectFlag(flag: Flags): void {
-    this.selectedFlag = flag;
+  //Catch the onclick event from the html
+  selectedFlags?: Flags;
+  //function to set which student to display
+  selectStudent(flags: Flags): void {
+    this.selectedFlags = flags;
   }
 
-  toggleInStockStatus(flag: Flags): void {
-    flag.isInStock = !flag.isInStock;
-  }
 }

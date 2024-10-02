@@ -1,4 +1,15 @@
-<!-- flags-list.component.html -->
-<div *ngFor="let flag of flagList; let i = index" [ngStyle]="{'background-color': i %2 === 0? 'pink' : 'teal'}">
-  <app-flags-list-item [flag]="flag" ></app-flags-list-item>
+<div>
+  <table>
+<tbody>
+<tr *ngFor="let flags of flagList" (click)="selectFlag(flags)">
+
+  <td>{{ flags.id }}</td>
+  <td>{{ flags.country }}</td>
+  <td>{{ flags.material }}</td>
+  <td>{{ flags.size }}</td>
+  <td>{{ flags.isInStock ? 'Yes' : 'No' }}</td>
+</tr>
+</tbody>
+</table>
+<app-flags-list-item [flags]="selectedFlags"></app-flags-list-item>
 </div>
