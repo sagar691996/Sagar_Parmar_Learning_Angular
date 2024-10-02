@@ -1,18 +1,4 @@
-
-<div class="flags-list">
-  
-    <div *ngFor="let flag of flagList" >
-
-      <h3>{{ flag.country }}</h3>
-      <p>Id: {{flag.id}}</p>
-      <p>Material: {{ flag.material }}</p>
-      <p>Size: {{ flag.size }}</p>
-      <p>Status: {{ flag.isInStock ? 'In Stock' : 'Out of Stock' }}</p>
-      <button (click)="toggleInStockStatus(flag)" class="toggle-button">
-        Available
-        </button>
-    </div>
-    <div>
-    </div>
-  </div>
-  
+<!-- flags-list.component.html -->
+<div *ngFor="let flag of flagList; let i = index" [ngStyle]="{'background-color': i %2 === 0? 'pink' : 'teal'}">
+  <app-flags-list-item [flag]="flag" ></app-flags-list-item>
+</div>
