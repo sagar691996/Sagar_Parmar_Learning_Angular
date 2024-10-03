@@ -12,5 +12,9 @@ export class FlagService {
   private flags : Flags[] = mockFlag;
 
   constructor() { }
-  
+  getFlag(): Observable<Flags[]> {
+    return of (mockFlag);
+  }
+
+
 }
