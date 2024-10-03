@@ -1,23 +1,14 @@
 import { Component } from '@angular/core';
 import { Flags } from '../Shared/Modules/flags';
-import {NgForOf} from "@angular/common";
-import { FlagsListComponent } from '../flags-list-item/flags-list-item.component';
 
 @Component({
   selector: 'app-flags-list',
   standalone: true,
-  imports: [
-    NgForOf,
-    NgForOf,
-    FlagsListComponent,
-  ],
   templateUrl: './flags-list.component.html',
-  styleUrl: './flags-list.component.scss'
+  styleUrls: ['./flags-list.component.scss'] // Changed from styleUrl to styleUrls
 })
-export class FlagsListsComponent {
+export class FlagsListComponent {
   title: string = 'National Flags';
-
-  displayedColumns: string[] = ['id', 'country', 'material', 'size', 'isInStock'];
   
   flagList: Flags[] = [
     { id: 1, country: 'India', material: 'Paper', size: '1.5 meter', isInStock: true },
@@ -27,11 +18,9 @@ export class FlagsListsComponent {
     { id: 5, country: 'Japan', material: 'Paper', size: '1.2 meter', isInStock: true },
   ];
 
-  //Catch the onclick event from the html
   selectedFlags?: Flags;
-  //function to set which student to display
-  selectStudent(flags: Flags): void {
-    this.selectedFlags = flags;
-  }
 
+  selectFlag(flag: Flags): void {
+    this.selectedFlags = flag;
+  }
 }
