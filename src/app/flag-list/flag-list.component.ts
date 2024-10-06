@@ -2,6 +2,7 @@ import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FlagListItemComponent } from '../flag-list-item/flag-list-item.component';
 import { Flag } from '../Shared/Models/flag';
+import { CountryFlagService } from '../services/country-flag.service';
 
 @Component({
   selector: 'app-flag-list',
@@ -12,7 +13,11 @@ import { Flag } from '../Shared/Models/flag';
 })
 export class FlagListComponent {
 
-  // flaglist:Flag[] = [
+  flaglist:Flag[] = [];
+
+  constructor (private CountryFlagService: CountryFlagService){
+    //this constructor is primarily used for dependency injection
+  }
   //   { id: 1, country: 'India', material: 'Paper', size: '1.5 meter', isInStock: true },
   //   { id: 2, country: 'Canada', material: 'Plastic', size: '1.9 meter', isInStock: false },
   //   { id: 3, country: 'U.S.A', material: 'Paper', size: '1.0 meter', isInStock: true },
