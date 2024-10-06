@@ -13,10 +13,20 @@ import { CountryFlagService } from '../services/country-flag.service';
 })
 export class FlagListComponent {
 
-  flaglist:Flag[] = [];
+  flagList:Flag[] = [];
 
   constructor (private CountryFlagService: CountryFlagService){
     //this constructor is primarily used for dependency injection
+  }
+
+  ngOnInit(){
+    //This lifecycle hook is a good place to fetch and init our data
+   this.CountryFlagService.getFlag().subscribe({
+     next: (data: Flag[]) => this.flagList = data,
+     error:err => console.error("Its not fetching the flags form the arrays", err),
+     complete:() => console.log("Flag data fetch complete!")
+   })
+
   }
   //   { id: 1, country: 'India', material: 'Paper', size: '1.5 meter', isInStock: true },
   //   { id: 2, country: 'Canada', material: 'Plastic', size: '1.9 meter', isInStock: false },

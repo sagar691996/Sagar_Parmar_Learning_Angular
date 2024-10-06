@@ -17,4 +17,26 @@ export class CountryFlagService {
   }
 
 
+addFlag(newFlag:Flag) : Observable<Flag[]>{
+  this.flags.push(newFlag)
+  return of(this.flags);
+}
+
+//Update flags if any chanages occur
+updateFlag(updatedFlag: Flag): Observable<Flag[]> {
+  const index = this.flags.findIndex(flag => flag.id === updatedFlag.id);
+  if (index !== -1) {
+    this.flags[index] = updatedFlag;
+  }
+  return of(this.flags);
+}
+//Delete: Remove a user by ID
+deleteFlag(flagId: number): Observable<Flag[]> {
+  this.flags = this.flags.filter(flag => flag.id !== flagId);
+  return of(this.flags);
+}
+getFlagById(flagId: number): Observable<Flag | undefined> {
+  const flag = this.flags.find(flag => flag.id === flagId);
+  return of(flag);
+}
 }
