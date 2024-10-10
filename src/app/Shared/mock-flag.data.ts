@@ -1,5 +1,5 @@
 // mock-content.ts
-import { Flag } from "../Shared/Models/flag"; // adjust the path accordingly
+import { Flag } from "./Models/flag"; // adjust the path accordingly
 
 export const mockFlag: Flag[] = [
 

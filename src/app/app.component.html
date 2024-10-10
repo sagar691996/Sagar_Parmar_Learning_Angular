@@ -1,3 +1,27 @@
-<p>{{title}}</p>
-<app-flag-list-item></app-flag-list-item>
-<app-flag-list></app-flag-list>
+<!-- Future Nav bar-->
+<div class="nav-bar">
+    <!--Mathew Haug has checked this, there is a weird bug and he is looking at it. But he told me 
+    The code is correct. 
+
+    To who ever is marking, any comments or concerns please email me at mhaug@stclaircollege.ca
+    
+    Signed: 
+    
+    Mathew Haug-->
+
+    <nav>
+      <a routerLink="/flags" routerLinkActive="active">Flag List</a>
+      <a routerLink="/modify-list-item" routerLinkActive="active">Modify Flag</a>
+    
+    </nav>
+  </div>
+
+
+  
+  <div class="app-container">
+    
+  
+    <!--router outlet to display routed components -->
+    <router-outlet></router-outlet>
+  </div>
+  

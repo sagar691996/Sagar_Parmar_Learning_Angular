@@ -1,4 +1,35 @@
-<p *ngFor="let flag of flagList">
-    <app-flag-list-item [flagData]="flag"></app-flag-list-item>
-</p>
+<!-- <div *ngFor="let flag of flagList" [routerLink]="['/flags',flag.id ]">
+    <p>country: {{flag.country}}</p>
+    <p>Id: {{flag.id}}</p>
+    <p>Material: {{flag.material}}</p>
+    <p>Size: {{flag.size}}</p>
+    <p>IsinStock: {{flag.isInStock}}</p> 
+</div> -->
 
+<div class="container">
+    <h2>Flag List</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Country</th>
+        <th>id</th>
+        <th>Material</th>
+        <th>Size</th>
+        <th>inStock</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let flag of flagList" [routerLink]="['/flags',flag.id ]">
+        <td>{{ flag.country }}</td>
+        <td>{{ flag.id }}</td>
+        <td>{{ flag.material }}</td>
+        <td>{{ flag.size }}</td>
+        <td>{{ flag.isInStock ? 'Yes' : 'No' }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+
+  </div>
+  

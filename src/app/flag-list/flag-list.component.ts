@@ -3,17 +3,18 @@ import { Component, OnInit } from '@angular/core';
 import { FlagListItemComponent } from '../flag-list-item/flag-list-item.component';
 import { Flag } from '../Shared/Models/flag';
 import { CountryFlagService } from '../services/country-flag.service';
-
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-flag-list',
   standalone: true,
-  imports: [NgForOf,FlagListItemComponent],
+  imports: [NgForOf,FlagListItemComponent,RouterLink, RouterLinkActive],
   templateUrl: './flag-list.component.html',
   styleUrl: './flag-list.component.scss'
 })
 export class FlagListComponent implements OnInit {
 
+  displayedColumns:string[]= ['id', 'firstName', 'lastName', 'department', 'isAdmin'];
   flagList:Flag[] = [];
 
   constructor (private CountryFlagService: CountryFlagService){
@@ -28,6 +29,11 @@ export class FlagListComponent implements OnInit {
      complete:() => console.log("Flag data fetch complete!")
    })
 
+  }
+
+  selectedFlag?: Flag;
+  selectFlag(flag: Flag): void {
+    this.selectedFlag = flag;
   }
   //   { id: 1, country: 'India', material: 'Paper', size: '1.5 meter', isInStock: true },
   //   { id: 2, country: 'Canada', material: 'Plastic', size: '1.9 meter', isInStock: false },
