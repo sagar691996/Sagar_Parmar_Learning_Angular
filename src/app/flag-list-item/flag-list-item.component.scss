@@ -14,21 +14,21 @@
   p {
     margin: 8px 0;
     font-size: 16px;
-    color: #333;
+    color: #f6eeee;
 
     &:first-child {
       font-weight: bold;
       font-size: 18px;
-      color: #007bff; // Highlight country name
+      color: #161b20; // Highlight country name
     }
 
     &:nth-child(2) {
-      color: #555; // Styling for ID
+      color: #e8dddd; // Styling for ID
     }
 
     &:nth-child(3),
     &:nth-child(4) {
-      color: #666; // Styling for material and size
+      color: #e2d6d6; // Styling for material and size
     }
 
     &:nth-child(5) {

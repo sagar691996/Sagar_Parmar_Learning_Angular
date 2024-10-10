@@ -1,21 +1,25 @@
 import { Injectable } from '@angular/core';
-//import our mock data
-import { mockFlag } from '../data/mock-flag';
 import { Observable, of } from 'rxjs';
 import { Flag } from '../Shared/Models/flag';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountryFlagService {
-  private flags : Flag[] = mockFlag;
+
+  private flags: Flag[] = [
+    { id: 1, country: 'India', material: 'Paper', size: '1.5 meter', isInStock: true },
+    { id: 2, country: 'Canada', material: 'Plastic', size: '1.9 meter', isInStock: false },
+    { id: 3, country: 'U.S.A', material: 'Paper', size: '1.0 meter', isInStock: true },
+    { id: 4, country: 'U.K', material: 'Plastic', size: '1.7 meter', isInStock: false },
+    { id: 5, country: 'Japan', material: 'Paper', size: '1.2 meter', isInStock: true }
+  ];
 
   constructor() { }
-  getFlag(): Observable<Flag[]> {
-    return of (mockFlag);//Return and observable that emits mock flag data
-  }
 
+getFlag(): Observable<Flag[]> {
+  return of(this.flags);
+}
 
 addFlag(newFlag:Flag) : Observable<Flag[]>{
   this.flags.push(newFlag)
@@ -38,7 +42,5 @@ deleteFlag(flagId: number): Observable<Flag[]> {
 getFlagById(flagId: number): Observable<Flag | undefined> {
   const flag = this.flags.find(flag => flag.id === flagId);
   return of(flag);
-
-
 }
 }

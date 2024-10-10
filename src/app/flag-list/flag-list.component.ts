@@ -1,17 +1,18 @@
 import { NgForOf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FlagListItemComponent } from '../flag-list-item/flag-list-item.component';
 import { Flag } from '../Shared/Models/flag';
 import { CountryFlagService } from '../services/country-flag.service';
 
+
 @Component({
   selector: 'app-flag-list',
   standalone: true,
-  imports: [NgForOf,NgForOf,FlagListItemComponent],
+  imports: [NgForOf,FlagListItemComponent],
   templateUrl: './flag-list.component.html',
   styleUrl: './flag-list.component.scss'
 })
-export class FlagListComponent {
+export class FlagListComponent implements OnInit {
 
   flagList:Flag[] = [];
 
