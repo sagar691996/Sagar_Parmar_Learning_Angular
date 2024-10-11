@@ -4,4 +4,5 @@ export interface Flag {
     material: string;
     size: string;
     isInStock: boolean;
+    image: String;
 }

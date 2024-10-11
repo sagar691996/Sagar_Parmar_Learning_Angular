@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Flag } from '../Shared/Models/flag';
-import { NgIf } from '@angular/common';
+import { NgIf, NgOptimizedImage } from '@angular/common';
 import { CountryFlagService } from '../services/country-flag.service';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-flag-list-item',
   standalone: true,
-  imports: [NgIf, RouterLink, RouterLinkActive],
+  imports: [NgIf, RouterLink, RouterLinkActive, NgOptimizedImage],
   templateUrl: './flag-list-item.component.html',
   styleUrl: './flag-list-item.component.scss'
 })
@@ -41,5 +41,10 @@ export class FlagListItemComponent implements OnInit{
 });
   }
 
+  items = [
+    { name: 'Item 1', imageUrl: 'https://via.placeholder.com/150' },
+    { name: 'Item 2', imageUrl: 'https://via.placeholder.com/150' },
+    { name: 'Item 3', imageUrl: 'https://via.placeholder.com/150' },
+  ];
 }
 

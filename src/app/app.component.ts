@@ -3,9 +3,7 @@ import { Component} from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FlagListComponent } from './flag-list/flag-list.component';
 import { FlagListItemComponent } from "./flag-list-item/flag-list-item.component";
-import { CountryFlagService } from './services/country-flag.service';
-import { Flag } from './Shared/Models/flag';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
