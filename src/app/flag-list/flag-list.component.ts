@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FlagListItemComponent } from '../flag-list-item/flag-list-item.component';
 import { Flag } from '../Shared/Models/flag';
 import { CountryFlagService } from '../services/country-flag.service';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import {Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-flag-list',
@@ -17,10 +17,8 @@ export class FlagListComponent implements OnInit {
   displayedColumns:string[]= ['id', 'firstName', 'lastName', 'department', 'isAdmin'];
   flagList:Flag[] = [];
 
-  constructor (private CountryFlagService: CountryFlagService){
-    //this constructor is primarily used for dependency injection
+  constructor (private CountryFlagService: CountryFlagService,  private router: Router) {
   }
-
   ngOnInit(){
     //This lifecycle hook is a good place to fetch and init our data
    this.CountryFlagService.getFlag().subscribe({
@@ -41,4 +39,15 @@ export class FlagListComponent implements OnInit {
   //   { id: 4, country: 'U.K', material: 'Plastic', size: '1.7 meter', isInStock: false },
   //   { id: 5, country: 'Japan', material: 'Paper', size: '1.2 meter', isInStock: true }
   // ];
+  onDelete(id: number | undefined): void {
+    if (id) {
+      this.CountryFlagService.deleteFlag(id);
+    }
+    this.ngOnInit()
+  }
+
+  onEdit(id: number | undefined): void {
+    this.router.navigate(['/modify-champion', id]);
+  }
+
 }

@@ -34,8 +34,13 @@ deleteFlag(flagId: number): Observable<Flag> {
   this.local_flagList = this.local_flagList.filter(flag => flag.id !== flagId);
   return of(this.local_flagList[flagId]);
 }
+
 getFlagById(flagId: number): Observable<Flag | undefined> {
   const flag = this.local_flagList.find(flag => flag.id === flagId);
   return of(flag);
+}
+
+generateNewId(): number {
+  return this.local_flagList.length > 0 ? Math.max(...this.local_flagList.map(flag => flag.id)) + 1 : 1;
 }
 }
