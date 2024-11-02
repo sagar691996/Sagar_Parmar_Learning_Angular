@@ -1,11 +1,12 @@
-<div *ngFor="let flag of flagList; even as isEven"
-[routerLink]="['/flags',flag.id ]">
-    <p>country: {{flag.country}}</p>
-    <p>Id: {{flag.id}}</p>
+<div class="flag-container">
+  <div *ngFor="let flag of flagList; even as isEven" class="flag-card" [routerLink]="['/flags',flag.id ]">
+    <p>Country: {{flag.country}}</p>
+    <p>ID: {{flag.id}}</p>
     <p>Material: {{flag.material}}</p>
     <p>Size: {{flag.size}}</p>
-    <p>IsinStock: {{flag.isInStock}}</p> 
+    <p>In Stock: {{flag.isInStock ? 'Yes' : 'No'}}</p>
+    <img ngSrc="{{flag.image}}" alt="{{flag.country}} flag" height="120" width="200">
     <button type="button" (click)="onEdit(flag.id); $event.stopPropagation()">Edit</button>
-    <!-- Delete Button-->
     <button type="button" (click)="onDelete(flag.id); $event.stopPropagation()">Delete</button>
+  </div>
 </div>

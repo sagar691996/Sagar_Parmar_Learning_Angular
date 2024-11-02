@@ -24,7 +24,7 @@ addFlag(newFlag:Flag) : Observable<Flag[]>{
 //Update flags if any chanages occur
 updateFlag(updatedFlag: Flag): Observable<Flag[]> {
   const index = this.local_flagList.findIndex(flag => flag.id === updatedFlag.id);
-  if (index !== -1) {
+  if (index > -1) {
     this.local_flagList[index] = updatedFlag;
   }
   return of(this.local_flagList);

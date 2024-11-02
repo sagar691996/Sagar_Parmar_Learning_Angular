@@ -1,4 +1,4 @@
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgOptimizedImage } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FlagListItemComponent } from '../flag-list-item/flag-list-item.component';
 import { Flag } from '../Shared/Models/flag';
@@ -8,7 +8,7 @@ import {Router, RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-flag-list',
   standalone: true,
-  imports: [NgForOf,FlagListItemComponent,RouterLink, RouterLinkActive],
+  imports: [NgForOf,FlagListItemComponent,RouterLink, RouterLinkActive, NgOptimizedImage],
   templateUrl: './flag-list.component.html',
   styleUrl: './flag-list.component.scss'
 })
@@ -19,7 +19,7 @@ export class FlagListComponent implements OnInit {
 
   constructor (private CountryFlagService: CountryFlagService,  private router: Router) {
   }
-  ngOnInit(){
+  ngOnInit(): void{
     //This lifecycle hook is a good place to fetch and init our data
    this.CountryFlagService.getFlag().subscribe({
      next: (data: Flag[]) => this.flagList = data,
@@ -29,25 +29,23 @@ export class FlagListComponent implements OnInit {
 
   }
 
-  selectedFlag?: Flag;
-  selectFlag(flag: Flag): void {
-    this.selectedFlag = flag;
-  }
+  // selectedFlag?: Flag;
+  // selectFlag(flag: Flag): void {
+  //   this.selectedFlag = flag;
+  // }
   //   { id: 1, country: 'India', material: 'Paper', size: '1.5 meter', isInStock: true },
   //   { id: 2, country: 'Canada', material: 'Plastic', size: '1.9 meter', isInStock: false },
   //   { id: 3, country: 'U.S.A', material: 'Paper', size: '1.0 meter', isInStock: true },
   //   { id: 4, country: 'U.K', material: 'Plastic', size: '1.7 meter', isInStock: false },
   //   { id: 5, country: 'Japan', material: 'Paper', size: '1.2 meter', isInStock: true }
   // ];
-  onDelete(id: number | undefined): void {
-    if (id) {
-      this.CountryFlagService.deleteFlag(id);
-    }
-    this.ngOnInit()
+  onDelete(flagId: number): void {
+    this.CountryFlagService.deleteFlag(flagId);
+    this.flagList = this.flagList.filter(flag => flag.id !== flagId);
   }
 
-  onEdit(id: number | undefined): void {
-    this.router.navigate(['/modify-champion', id]);
+  onEdit(flagId: number | undefined): void {
+    this.router.navigate(['/modify-list-item', flagId]);
   }
 
 }

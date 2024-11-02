@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgIf} from "@angular/common";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import { CountryFlagService } from '../services/country-flag.service';
 import { Flag } from '../Shared/Models/flag';
 
@@ -12,7 +12,7 @@ import { Flag } from '../Shared/Models/flag';
   imports: [
     FormsModule,
     NgIf,
-    ReactiveFormsModule
+    ReactiveFormsModule, RouterLink,
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.scss'
@@ -28,13 +28,12 @@ export class ModifyListItemComponent {
     private router: Router
   ) {
     this.flagForm = this.fb.group({
-      id: ['', Validators.min(0)],
-      name: ['', Validators.required],
-      title: ['', Validators.required],
-      class: ['', Validators.pattern(/^[A-Z, a-z]*$/)],
-      price: ['', Validators.max(7300)],
-      isOP: [false],
-      src: ['']
+      id: ['', Validators.required],
+      country: ['', Validators.required],
+      material: ['', Validators.required],
+      size: ['', Validators.required],
+      isInStock: [false],
+      image: [''],
     });
   }
   ngOnInit(): void {

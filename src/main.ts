@@ -11,7 +11,8 @@ const routes: Routes = [
   {path:'', redirectTo: '/flags', pathMatch: 'full'}, //default route
   { path: 'flags', component: FlagListComponent },
   { path: 'flags/:id', component: FlagListItemComponent },
-  {path:'modify-flag', component: ModifyListItemComponent},
+  {path:'modify-list-item', component: ModifyListItemComponent},
+  {path:'modify-list-item/:id', component: ModifyListItemComponent},
   {path: '**', component:PageNotFoundComponent}//Wildcard route for a 404 page
 ];
 
