@@ -18,6 +18,7 @@ export class FlagListItemComponent implements OnInit{
   flag: Flag | undefined; //The student to display
   flagList: Flag[] = [];// to store the list of students
   currentIndex: number = 0;//to track the current index
+  error: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,25 +27,33 @@ export class FlagListItemComponent implements OnInit{
   ) {}
 //rewrite onInit to get the list of students and the current student
   ngOnInit(): void {
-    this.CountryFlagService.getFlag().subscribe(flags  => {
-      this.flagList = flags;
+    this.CountryFlagService.getFlag().subscribe({
+      next: (flags: Flag[]) => {
+        this.flagList = flags;
+        this.error = null;
 
-      // Subscribe to paramMap changes to actually see the page changing
-      //If we dont do this, the URL will change but the view will not
-      this.route.paramMap.subscribe(params => {
-        const id = Number(params.get('id'));
-        if (id) {
-          this.currentIndex = this.flagList.findIndex(flag => flag.id === id);
-          this.flag = this.flagList[this.currentIndex];
-        }
-     });
-});
-  }
+        this.route.paramMap.subscribe(params => {
+          const id = Number(params.get('id'));
+          if (id) {
+            this.currentIndex = this.flagList.findIndex(flag => flag.id === id);
+            this.flag = this.flagList[this.currentIndex];
+          }
+       });
+    },
+    error: (err) => {
+      this.error = 'Error fetching flags';
+      console.error('Error fetching flags:', err);
+    }
+  });
+}
+
+
+
 
   items = [
     { name: 'Item 1', imageUrl: 'https://via.placeholder.com/150' },
     { name: 'Item 2', imageUrl: 'https://via.placeholder.com/150' },
     { name: 'Item 3', imageUrl: 'https://via.placeholder.com/150' },
   ];
-}
+} 
 

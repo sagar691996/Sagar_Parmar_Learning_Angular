@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FlagListItemComponent } from '../flag-list-item/flag-list-item.component';
 import { Flag } from '../Shared/Models/flag';
 import { CountryFlagService } from '../services/country-flag.service';
-import {Router, RouterLink, RouterLinkActive } from '@angular/router';
+import {ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-flag-list',
@@ -16,18 +16,25 @@ export class FlagListComponent implements OnInit {
 
   displayedColumns:string[]= ['id', 'firstName', 'lastName', 'department', 'isAdmin'];
   flagList:Flag[] = [];
+  error: string | null = null;
 
-  constructor (private CountryFlagService: CountryFlagService,  private router: Router) {
+  constructor (private CountryFlagService: CountryFlagService,  private router: Router, private route: ActivatedRoute) {
   }
-  ngOnInit(): void{
+  ngOnInit() {
     //This lifecycle hook is a good place to fetch and init our data
    this.CountryFlagService.getFlag().subscribe({
-     next: (data: Flag[]) => this.flagList = data,
-     error:err => console.error("Its not fetching the flags form the arrays", err),
-     complete:() => console.log("Flag data fetch complete!")
-   })
+     next: (data: Flag[]) => {
+      this.flagList = data;
+      this.error = null;
+    },
 
-  }
+    error: err => {
+      this.error = 'Error fetching flags'; // Set an error message
+      console.error("Error fetching flags", err);
+    },
+    complete: () => console.log("Flags data fetch complete successfully!")
+  });
+}
 
   // selectedFlag?: Flag;
   // selectFlag(flag: Flag): void {

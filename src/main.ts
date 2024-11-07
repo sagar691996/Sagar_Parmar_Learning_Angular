@@ -6,6 +6,10 @@ import { FlagListComponent } from './app/flag-list/flag-list.component';
 import { ModifyListItemComponent } from './app/modify-list-item/modify-list-item.component';
 import { PageNotFoundComponent } from './app/page-not-found/page-not-found.component';
 import { FlagListItemComponent } from './app/flag-list-item/flag-list-item.component';
+import { provideHttpClient } from "@angular/common/http";
+import { importProvidersFrom } from "@angular/core";
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataServiceService } from './app/services/in-memory-data-service.service';
 
 const routes: Routes = [
   {path:'', redirectTo: '/flags', pathMatch: 'full'}, //default route
@@ -17,6 +21,9 @@ const routes: Routes = [
 ];
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)]
-}).then(r => console.log('Bootstrap successful'));
-
+  providers: [
+    provideHttpClient(),
+    provideRouter(routes),
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataServiceService, { delay: 1000 }))
+  ],
+}).catch((err) => console.error(err));

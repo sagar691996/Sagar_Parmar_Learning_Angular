@@ -21,6 +21,8 @@ export class ModifyListItemComponent {
 
   flagForm: FormGroup;
   flag: Flag | undefined;
+  error: string | null = null;
+
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -28,7 +30,7 @@ export class ModifyListItemComponent {
     private router: Router
   ) {
     this.flagForm = this.fb.group({
-      id: ['', Validators.required],
+      id: [this.flagService.generateNewId()],
       country: ['', Validators.required],
       material: ['', Validators.required],
       size: ['', Validators.required],
@@ -37,27 +39,33 @@ export class ModifyListItemComponent {
     });
   }
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
-      this.flagService.getFlagById(+id).subscribe(flag => {
-        if(flag) {
-          this.flag = flag;
-          this.flagForm.patchValue(flag);
+      this.flagService.getFlagById(+id).subscribe({
+        next: flag => {
+          if(flag) {
+            this.flagForm.patchValue(flag);
+          }
+        },
+        error: err => {
+          this.error = 'Error fetching flag';
+          console.error('Error fetching flag:', err);
         }
       });
     }
   }
   onSubmit(): void {
-    const flag: Flag = this.flagForm.value;
-
-    if(flag.id) {
-      this.flagService.updateFlag(flag);
+    if(this.flagForm.valid) {
+      const flag: Flag = this.flagForm.value;
+      
+      if(flag.id) {
+      this.flagService.updateFlag(flag).subscribe(() => this.router.navigate(['/flags']));
     } else {
       flag.id = this.flagService.generateNewId();
-      this.flagService.addFlag(flag);
+      this.flagService.addFlag(flag).subscribe(() => this.router.navigate(['/flags']));
     }
-    this.router.navigate(['/flags']);
   }
+}
 
   navigateToFlagList(): void {
     this.router.navigate(['/flags']);
