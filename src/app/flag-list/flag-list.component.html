@@ -3,10 +3,9 @@
     <p>Country: {{ flag.country | uppercase }}</p> <!-- UppercasePipe -->
     <p>ID: {{ flag.id }}</p>
     <p>Material: {{ flag.material }}</p>
-    <p>Size: {{ flag.size | currency: 'USD' }}</p> <!-- CurrencyPipe -->
+    <p>Size: {{ flag.size}}</p> 
     <p>In Stock: {{ flag.isInStock ? 'Yes' : 'No' }}</p>
-    <p>{{ flag | fullDescription }}</p>
-    <p [innerHTML]="flag.country | colorText: flag.isInStock"></p>
+    <p>Price: {{flag.price | currency: 'USD'}}</p><!-- CurrencyPipe -->
     <img ngSrc="{{flag.image}}" alt="{{flag.country}} flag" height="120" width="200">
     <button type="button" (click)="onEdit(flag.id); $event.stopPropagation()">Edit</button>
     <button type="button" (click)="onDelete(flag.id); $event.stopPropagation()">Delete</button>
