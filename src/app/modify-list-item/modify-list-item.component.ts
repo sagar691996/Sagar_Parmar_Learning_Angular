@@ -12,7 +12,7 @@ import { Flag } from '../Shared/Models/flag';
   imports: [
     FormsModule,
     NgIf,
-    ReactiveFormsModule, RouterLink,
+    ReactiveFormsModule,
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.scss'

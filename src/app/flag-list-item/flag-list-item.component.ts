@@ -7,7 +7,7 @@ import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/r
 @Component({
   selector: 'app-flag-list-item',
   standalone: true,
-  imports: [NgIf, RouterLink, RouterLinkActive, NgOptimizedImage],
+  imports: [NgIf, NgOptimizedImage],
   templateUrl: './flag-list-item.component.html',
   styleUrl: './flag-list-item.component.scss'
 })

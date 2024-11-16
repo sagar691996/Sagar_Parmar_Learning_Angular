@@ -1,14 +1,15 @@
-import { NgForOf, NgOptimizedImage } from '@angular/common';
+import { NgForOf, NgOptimizedImage, UpperCasePipe,  } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FlagListItemComponent } from '../flag-list-item/flag-list-item.component';
 import { Flag } from '../Shared/Models/flag';
 import { CountryFlagService } from '../services/country-flag.service';
 import {ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { FullDescriptionPipe } from '../pipes/full-description.pipe';
+import { ColorTextPipe } from '../pipes/color-text.pipe';
 
 @Component({
   selector: 'app-flag-list',
   standalone: true,
-  imports: [NgForOf,RouterLink, NgOptimizedImage],
+  imports: [NgForOf, RouterLink, NgOptimizedImage, UpperCasePipe, FullDescriptionPipe, ColorTextPipe],
   templateUrl: './flag-list.component.html',
   styleUrl: './flag-list.component.scss'
 })
