@@ -14,10 +14,22 @@ import { InMemoryDataServiceService } from './app/services/in-memory-data-servic
 const routes: Routes = [
   {path:'', redirectTo: '/flags', pathMatch: 'full'}, //default route
   { path: 'flags', component: FlagListComponent },
-  { path: 'flags/:id', component: FlagListItemComponent },
-  {path:'modify-list-item', component: ModifyListItemComponent},
-  {path:'modify-list-item/:id', component: ModifyListItemComponent},
-  {path: '**', component:PageNotFoundComponent}//Wildcard route for a 404 page
+  { path: 'flags/:id', loadComponent: () =>
+    import('./app/flag-list-item/flag-list-item.component').then(
+      m => m.FlagListItemComponent
+    )},
+{ path: 'modify-list-item', loadComponent: () =>
+    import('./app/modify-list-item/modify-list-item.component').then(
+      m => m.ModifyListItemComponent
+    )},
+{ path: 'modify-list-item/:id', loadComponent: () =>
+    import('./app/modify-list-item/modify-list-item.component').then(
+      m => m.ModifyListItemComponent
+    )},
+{ path: '**', loadComponent: () =>
+    import('./app/page-not-found/page-not-found.component').then(
+      m => m.PageNotFoundComponent
+    )}
 ];
 
 bootstrapApplication(AppComponent, {
