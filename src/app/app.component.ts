@@ -1,6 +1,6 @@
-import { CurrencyPipe, DatePipe, JsonPipe, NgForOf, UpperCasePipe } from '@angular/common';
-import { Component} from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {JsonPipe, NgForOf, NgIf, NgStyle} from "@angular/common";
 import { FlagListComponent } from './flag-list/flag-list.component';
 import { FlagListItemComponent } from "./flag-list-item/flag-list-item.component";
 
@@ -15,9 +15,6 @@ import { FlagListItemComponent } from "./flag-list-item/flag-list-item.component
 })
 export class AppComponent{
   title:string = 'Flag';
-
-  constructor(
-      ) {}
 
   }
 

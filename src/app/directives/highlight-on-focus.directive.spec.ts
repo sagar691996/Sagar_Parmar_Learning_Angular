@@ -1,4 +1,5 @@
 import { HighlightOnFocusDirective } from './highlight-on-focus.directive';
+import { ElementRef } from '@angular/core';
 
 describe('HighlightOnFocusDirective', () => {
   it('should create an instance', () => {

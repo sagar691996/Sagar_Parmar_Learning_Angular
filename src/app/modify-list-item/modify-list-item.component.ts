@@ -4,8 +4,8 @@ import {NgIf} from "@angular/common";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import { CountryFlagService } from '../services/country-flag.service';
 import { Flag } from '../Shared/Models/flag';
-import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
-import {AutoFocusDirective} from "../directives/auto-focus.directive";
+import { AutoFocusDirective } from '../directives/auto-focus.directive';
+import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.directive';
 
 
 @Component({
@@ -14,7 +14,7 @@ import {AutoFocusDirective} from "../directives/auto-focus.directive";
   imports: [
     FormsModule,
     NgIf,
-    ReactiveFormsModule, AutoFocusDirective, HighlightOnFocusDirective, 
+    ReactiveFormsModule, AutoFocusDirective, HighlightOnFocusDirective
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.scss'
@@ -38,6 +38,7 @@ export class ModifyListItemComponent {
       size: ['', Validators.required],
       isInStock: [false],
       image: [''],
+      
     });
   }
   ngOnInit(): void {

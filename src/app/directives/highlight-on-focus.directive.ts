@@ -1,22 +1,23 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-
+import {AfterViewInit, Directive, ElementRef, HostListener, Input} from '@angular/core';
 @Directive({
-  selector: '[appHoverHighlight]'
+  selector: '[appHighlightOnFocus]',
+  standalone: true
 })
-export class HoverHighlightDirective {
-  @Input() highlightColor: string = 'yellow';
+export class HighlightOnFocusDirective{
+  @Input() appHighlightOnFocus = ''; 
+  @Input() appHighlightOnBlur = ''; 
 
   constructor(private el: ElementRef) {}
 
-  @HostListener('mouseenter') onMouseEnter() {
-    this.changeBackgroundColor(this.highlightColor);
+  @HostListener('focus') onFocus() {
+    this.highlight(this.appHighlightOnFocus || 'yellow'); // Default focus color
   }
 
-  @HostListener('mouseleave') onMouseLeave() {
-    this.changeBackgroundColor('');
+  @HostListener('blur') onBlur() {
+    this.highlight(this.appHighlightOnBlur || 'red'); // Default blur color
   }
 
-  private changeBackgroundColor(color: string) {
-    this.el.nativeElement.style.backgroundColor = color;
-  }
+  private highlight(color: string) {
+    this.el.nativeElement.style.backgroundColor = color;
+  }
 }
