@@ -1,5 +1,5 @@
 <div class="flag-container">
-  <div *ngFor="let flag of flagList; even as isEven" [appHoverHighlight]="'darkblue'" class="flag-card" [routerLink]="['/flags',flag.id ]">
+  <div *ngFor="let flag of flagList; even as isEven"appShowDetailsOnHover [detailsOnHover] = "'This is a tool will edit the flag'"  [appHoverHighlight]="'darkblue'" class="flag-card" [routerLink]="['/flags',flag.id ]">
     <p>Country: {{flag | titleName}}</p>
     <p>ID: {{flag.id}}</p>
     <p>Material: {{flag.material}}</p>

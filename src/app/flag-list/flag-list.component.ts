@@ -6,11 +6,12 @@ import { CountryFlagService } from '../services/country-flag.service';
 import {ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { TitleNamePipe } from "../pipes/title-name.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import { ShowDetailsOnHoverDirective } from '../directives/show-details-on-hover.directive';
 
 @Component({
   selector: 'app-flag-list',
   standalone: true,
-  imports: [NgForOf, RouterLink, NgOptimizedImage, TitleNamePipe, HoverHighlightDirective],
+  imports: [NgForOf, RouterLink, NgOptimizedImage, TitleNamePipe, HoverHighlightDirective, ShowDetailsOnHoverDirective],
   templateUrl: './flag-list.component.html',
   styleUrl: './flag-list.component.scss'
 })
