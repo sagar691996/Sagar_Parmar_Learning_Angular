@@ -15,7 +15,6 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.5 meter',
           isInStock: true,
           image: 'india.jpg',
-          createdAt: new Date('2022-01-01'),
           price: 100 // Add a price as it is required in the interface
       },
       {
@@ -25,7 +24,6 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.9 meter',
           isInStock: false,
           image: 'canada.jpg',
-          createdAt: new Date('2023-03-15'),
           price: 120 // Add a price as it is required in the interface
       },
       {
@@ -35,7 +33,6 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.0 meter',
           isInStock: true,
           image: 'usa.jpg',
-          createdAt: new Date('2021-08-20'),
           price: 90 // Add a price as it is required in the interface
       },
       {
@@ -45,7 +42,6 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.7 meter',
           isInStock: false,
           image: 'UK.jpg',
-          createdAt: new Date('2024-02-24'),
           price: 110 // Add a price as it is required in the interface
       },
       {
@@ -55,7 +51,6 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.2 meter',
           isInStock: true,
           image: 'japan.png',
-          createdAt: new Date('2024-08-16'),
           price: 105 // Add a price as it is required in the interface
       }
   ];
