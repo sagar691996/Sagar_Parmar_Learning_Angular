@@ -4,6 +4,8 @@ import {NgIf} from "@angular/common";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import { CountryFlagService } from '../services/country-flag.service';
 import { Flag } from '../Shared/Models/flag';
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
+import {AutoFocusDirective} from "../directives/auto-focus.directive";
 
 
 @Component({
@@ -12,7 +14,7 @@ import { Flag } from '../Shared/Models/flag';
   imports: [
     FormsModule,
     NgIf,
-    ReactiveFormsModule,
+    ReactiveFormsModule, AutoFocusDirective, HighlightOnFocusDirective, 
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.scss'

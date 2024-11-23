@@ -1,44 +1,50 @@
 <form [formGroup]="flagForm" (ngSubmit)="onSubmit()">
-    <!-- ID Field -->
-    <div class="form-group">
-      <label for="id">ID</label>
-      <input type="number" id="id" formControlName="id" />
-    </div>
-  
-    <!-- Name Field -->
-    <div class="form-group">
-      <label for="country">Country</label>
-      <input type="text" id="country" formControlName="country" />
-    </div>
-  
-    <!-- Title Field -->
-    <div class="form-group">
-      <label for="material">Material</label>
-      <input type="text" id="material" formControlName="material" />
-    </div>
-  
-    <!-- Class Field -->
-    <div class="form-group">
-      <label for="size">Size</label>
-      <input type="text" id="size" formControlName="size" />
-    </div>
-  
-  
-    <!-- Is Admin Checkbox -->
-    <div class="form-group">
-      <label for="isInStock">Is In Stock</label>
-      <input type="checkbox" id="isInStock" formControlName="isInStock" />
-    </div>
-  
-    <!-- Image Path Field -->
-    <div class="form-group">
-      <label for="image">Image</label>
-      <input type="text" id="image" formControlName="image" />
-    </div>
-  
-    <!-- Submit Button (Add or Update) -->
-    <button type="submit">Submit</button>
-  
-    <!-- Back Button -->
-    <button type="button" (click)="navigateToFlagList()">Back to List</button>
-  </form>
+  <!-- ID Field -->
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="number" id="id" formControlName="id" 
+    [appHighlightOnFocus] = "'lightblue'"/>
+  </div>
+
+  <!-- Name Field -->
+  <div class="form-group">
+    <label for="country">Country</label>
+    <input type="text" id="country" formControlName="country" 
+    [appHighlightOnFocus] = "'lightblue'" appAutoFocus />
+  </div>
+
+  <!-- Material Field -->
+  <div class="form-group">
+    <label for="material">Material</label>
+    <input type="text" id="material" formControlName="material" 
+    [appHighlightOnFocus] = "'lightblue'"/>
+  </div>
+
+  <!-- Size Field -->
+  <div class="form-group">
+    <label for="size">Size</label>
+    <input type="text" id="size" formControlName="size" 
+     [appHighlightOnFocus] = "'lightblue'" />
+  </div>
+
+  <!-- Is Admin Checkbox -->
+  <div class="form-group">
+    <label for="isInStock">Is In Stock</label>
+    <input type="checkbox" id="isInStock" formControlName="isInStock" 
+    [appHighlightOnFocus] = "'lightblue'" />
+  </div>
+
+  <!-- Image Path Field -->
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input type="text" id="image" formControlName="image" 
+    [appHighlightOnFocus] = "'lightblue'" />
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit">Submit</button>
+
+  <!-- Back Button -->
+  <button type="button" (click)="navigateToFlagList()">Back to List</button>
+</form>
+<div *ngIf="error" class="error">{{ error }}</div>
