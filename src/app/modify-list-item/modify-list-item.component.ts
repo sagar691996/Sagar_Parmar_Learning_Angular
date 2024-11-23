@@ -36,7 +36,6 @@ export class ModifyListItemComponent {
       size: ['', Validators.required],
       isInStock: [false],
       image: [''],
-      price: ['', Validators.required],
     });
   }
   ngOnInit(): void {

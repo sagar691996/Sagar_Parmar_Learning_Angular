@@ -7,8 +7,8 @@ import { Flag } from '../Shared/Models/flag';
 })
 export class TitleNamePipe implements PipeTransform {
 
-  transform(flag:Flag | undefined): string {
-    return `${flag?.country}`;
+  transform(flag: Flag): string {
+    return `${flag.country} ${flag.CashReserve}`;
   }
 
 }

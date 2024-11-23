@@ -1,14 +1,15 @@
-import { NgForOf, NgOptimizedImage} from '@angular/common';
+import { NgForOf, NgOptimizedImage } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FlagListItemComponent } from '../flag-list-item/flag-list-item.component';
 import { Flag } from '../Shared/Models/flag';
 import { CountryFlagService } from '../services/country-flag.service';
-import {Router, RouterLink } from '@angular/router';
-import { FlagListItemComponent } from "../flag-list-item/flag-list-item.component";
+import {ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { TitleNamePipe } from "../pipes/title-name.pipe";
 
 @Component({
   selector: 'app-flag-list',
   standalone: true,
-  imports: [NgForOf, RouterLink, NgOptimizedImage, FlagListItemComponent],
+  imports: [NgForOf, RouterLink, NgOptimizedImage, TitleNamePipe],
   templateUrl: './flag-list.component.html',
   styleUrl: './flag-list.component.scss'
 })
@@ -18,7 +19,7 @@ export class FlagListComponent implements OnInit {
   flagList:Flag[] = [];
   error: string | null = null;
 
-  constructor (private CountryFlagService: CountryFlagService,  private router: Router) {
+  constructor (private CountryFlagService: CountryFlagService,  private router: Router, private route: ActivatedRoute) {
   }
   ngOnInit() {
     //This lifecycle hook is a good place to fetch and init our data

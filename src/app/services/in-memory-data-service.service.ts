@@ -15,6 +15,7 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.5 meter',
           isInStock: true,
           image: 'india.jpg',
+          CashReserve : 25000000,
       },
       {
           id: 2,
@@ -23,6 +24,7 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.9 meter',
           isInStock: false,
           image: 'canada.jpg',
+          CashReserve : 25000000,
       },
       {
           id: 3,
@@ -31,6 +33,7 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.0 meter',
           isInStock: true,
           image: 'usa.jpg',
+          CashReserve : 25000000,
         },
       {
           id: 4,
@@ -39,6 +42,7 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.7 meter',
           isInStock: false,
           image: 'UK.jpg',
+          CashReserve : 25000000,
       },
       {
           id: 5,
@@ -47,6 +51,7 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.2 meter',
           isInStock: true,
           image: 'japan.png',
+          CashReserve : 25000000,
       }
   ];
   

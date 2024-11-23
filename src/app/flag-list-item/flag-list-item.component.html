@@ -1,7 +1,8 @@
 <div *ngIf="flag" class="x">
-    <p>country: {{flag | titleName }}</p>
+    <p>country: {{flag.country}}</p>
     <p>Id: {{flag.id}}</p>
-    <p>Material: {{flag.material | lowercase}}</p>
+    <p>Material: {{flag.material}}</p>
     <p>Size: {{flag.size}}</p>
     <p>IsinStock: {{flag.isInStock}}</p>
+    <img ngSrc="{{flag.image}}" height="120" width="200">
 </div>

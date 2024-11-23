@@ -4,5 +4,6 @@ export interface Flag {
     material: string;
     size: string;
     isInStock: boolean;
+    CashReserve : Number;
     image: String;
 }

@@ -1,9 +1,13 @@
 <div class="flag-container">
-  <app-flag-list-item *ngFor="let flag of flagList; even as isEven" class="flag-card" [routerLink]="['/flags', flag.id ]">
-  
-    <!-- <p>Price: {{flag.price | currency: 'USD'}}</p>CurrencyPipe -->
+  <div *ngFor="let flag of flagList; even as isEven" class="flag-card" [routerLink]="['/flags',flag.id ]">
+    <p>Country: {{flag | titleName}}</p>
+    <p>ID: {{flag.id}}</p>
+    <p>Material: {{flag.material}}</p>
+    <p>Size: {{flag.size}}</p>
+    <p>In Stock: {{flag.isInStock ? 'Yes' : 'No'}}</p>
+    <p>Cash Reserve: {{flag.CashReserve}}</p>
     <img ngSrc="{{flag.image}}" alt="{{flag.country}} flag" height="120" width="200">
     <button type="button" (click)="onEdit(flag.id); $event.stopPropagation()">Edit</button>
     <button type="button" (click)="onDelete(flag.id); $event.stopPropagation()">Delete</button>
-  </app-flag-list-item>
+  </div>
 </div>
