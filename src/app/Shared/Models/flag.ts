@@ -5,5 +5,4 @@ export interface Flag {
     size: string;
     isInStock: boolean;
     image: String;
-    createdAt: Date;
 }

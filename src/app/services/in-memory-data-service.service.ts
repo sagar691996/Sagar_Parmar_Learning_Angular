@@ -15,7 +15,6 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.5 meter',
           isInStock: true,
           image: 'india.jpg',
-          price: 100 // Add a price as it is required in the interface
       },
       {
           id: 2,
@@ -24,7 +23,6 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.9 meter',
           isInStock: false,
           image: 'canada.jpg',
-          price: 120 // Add a price as it is required in the interface
       },
       {
           id: 3,
@@ -33,8 +31,7 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.0 meter',
           isInStock: true,
           image: 'usa.jpg',
-          price: 90 // Add a price as it is required in the interface
-      },
+        },
       {
           id: 4,
           country: 'U.K',
@@ -42,7 +39,6 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.7 meter',
           isInStock: false,
           image: 'UK.jpg',
-          price: 110 // Add a price as it is required in the interface
       },
       {
           id: 5,
@@ -51,7 +47,6 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           size: '1.2 meter',
           isInStock: true,
           image: 'japan.png',
-          price: 105 // Add a price as it is required in the interface
       }
   ];
   

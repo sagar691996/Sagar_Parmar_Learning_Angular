@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of, throwError } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Flag } from '../Shared/Models/flag';
 import { mockFlag } from '../Shared/mock-flag.data';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
