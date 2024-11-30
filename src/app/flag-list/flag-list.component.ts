@@ -7,11 +7,14 @@ import {ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/ro
 import { TitleNamePipe } from "../pipes/title-name.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 import { ShowDetailsOnHoverDirective } from '../directives/show-details-on-hover.directive';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-flag-list',
   standalone: true,
-  imports: [NgForOf, RouterLink, NgOptimizedImage, TitleNamePipe, HoverHighlightDirective, ShowDetailsOnHoverDirective],
+  imports: [NgForOf, RouterLink, NgOptimizedImage, HoverHighlightDirective, ShowDetailsOnHoverDirective, MatCardModule, MatButtonModule, MatIconModule],
   templateUrl: './flag-list.component.html',
   styleUrl: './flag-list.component.scss'
 })

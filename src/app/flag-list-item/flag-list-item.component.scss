@@ -1,39 +1,43 @@
-.x {
-    padding: 20px;
-    background-color: #7c95a1;
-    border: 1px solid #7a6e6e;
-    border-radius: 8px;
-    max-width: 400px;
-    margin: 10px auto;
-    text-align: left;
-    color: #f5f2f2;
-  
-    
-  }
+.flag-card {
+  margin: 20px auto;
+  max-width: 400px;
+  background-color: #f5f7fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
 
-  p {
-    margin: 8px 0;
-    font-size: 16px;
-    color: #f6eeee;
+.mat-card-header {
+  background-color: #e3f2fd; /* Light blue background for header */
+  border-bottom: 1px solid #ccc;
+  padding: 8px 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
 
-    &:first-child {
-      font-weight: bold;
-      font-size: 18px;
-      color: #161b20; // Highlight country name
-    }
+.mat-card-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #1565c0; /* Primary blue */
+}
 
-    &:nth-child(2) {
-      color: #e8dddd; // Styling for ID
-    }
+.mat-card-subtitle {
+  font-size: 14px;
+  color: #546e7a; /* Secondary grey */
+}
 
-    &:nth-child(3),
-    &:nth-child(4) {
-      color: #e2d6d6; // Styling for material and size
-    }
+.mat-card-content p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #424242;
+}
 
-    &:nth-child(5) {
-      font-weight: bold;// Use a variable for stock color, set it in your variables file or change here
-    }
-  }
-  
-  
+.mat-card-content p:nth-child(3) {
+  font-weight: bold;
+}
+
+.mat-icon {
+  vertical-align: middle;
+  margin-right: 4px;
+  color: #1565c0;
+}

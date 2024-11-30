@@ -71,4 +71,27 @@
     color: #343a40; /* Dark color for the title text */
     text-align: center; /* Center the title text */
   }
+
+  /* Styling for mat-button links */
+button[mat-button] {
+  color: cornsilk; 
+  font-weight: bold;
+  background-color: rgb(99, 113, 81); 
+  padding: 8px 16px;
+  margin-left: 8px;
+  border-radius: 4px;
+  text-transform: none;
+}
+
+/* Styling for the active mat-button */
+button[mat-button]:active {
+  font-weight: bold;
+  color: rgb(167, 93, 158); 
+}
+
+/* Hover effect for buttons */
+button[mat-button]:hover {
+  background-color: rgb(30, 114, 104); 
+  color: rgb(0, 170, 255);
+}
   

@@ -3,11 +3,13 @@ import { Flag } from '../Shared/Models/flag';
 import { NgIf, NgOptimizedImage } from '@angular/common';
 import { CountryFlagService } from '../services/country-flag.service';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-flag-list-item',
   standalone: true,
-  imports: [NgIf, NgOptimizedImage],
+  imports: [NgIf, NgOptimizedImage, MatCardModule, MatIconModule],
   templateUrl: './flag-list-item.component.html',
   styleUrl: './flag-list-item.component.scss'
 })

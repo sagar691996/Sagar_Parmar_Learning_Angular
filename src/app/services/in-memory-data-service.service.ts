@@ -32,7 +32,7 @@ export class InMemoryDataServiceService implements InMemoryDbService {
           material: 'Paper',
           size: '1.0 meter',
           isInStock: true,
-          image: 'usa.jpg',
+          image: 'USA.png',
           CashReserve : 25000000,
         },
       {

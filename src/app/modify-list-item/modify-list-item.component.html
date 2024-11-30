@@ -1,50 +1,48 @@
-<form [formGroup]="flagForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="flagForm" (ngSubmit)="onSubmit()" class="form-container">
   <!-- ID Field -->
-  <div class="form-group">
-    <label for="id">ID</label>
-    <input type="number" id="id" formControlName="id" 
-    [appHighlightOnFocus] = "'lightblue'"/>
-  </div>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label matTooltip="Auto-Generated ID">ID</mat-label>
+    <input matInput type="number" id="id" formControlName="id"/>
+  </mat-form-field>
 
   <!-- Name Field -->
-  <div class="form-group">
-    <label for="country">Country</label>
-    <input type="text" id="country" formControlName="country" 
-    [appHighlightOnFocus] = "'lightblue'" appAutoFocus />
-  </div>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label matTooltip="Enter Country">Country</mat-label>
+    <input matInput type="text" id="country" formControlName="country"/>
+  </mat-form-field>
 
   <!-- Material Field -->
-  <div class="form-group">
-    <label for="material">Material</label>
-    <input type="text" id="material" formControlName="material" 
-    [appHighlightOnFocus] = "'lightblue'"/>
-  </div>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label matTooltip="Enter Material">Material</mat-label>
+    <input matInput type="text" id="material" formControlName="material" />
+  </mat-form-field>
 
   <!-- Size Field -->
-  <div class="form-group">
-    <label for="size">Size</label>
-    <input type="text" id="size" formControlName="size" 
-     [appHighlightOnFocus] = "'lightblue'" />
-  </div>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label matTooltip="Enter Size">Size</mat-label>
+    <input matInput type="text" id="size" formControlName="size" />
+  </mat-form-field>
 
-  <!-- Is Admin Checkbox -->
+  <!-- Is In Stock Checkbox -->
   <div class="form-group">
-    <label for="isInStock">Is In Stock</label>
-    <input type="checkbox" id="isInStock" formControlName="isInStock" 
-    [appHighlightOnFocus] = "'lightblue'" />
+    <mat-checkbox id="isInStock" formControlName="isInStock">
+      Is In Stock
+    </mat-checkbox>
   </div>
 
   <!-- Image Path Field -->
-  <div class="form-group">
-    <label for="image">Image</label>
-    <input type="text" id="image" formControlName="image" 
-    [appHighlightOnFocus] = "'lightblue'" />
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label matTooltip="Enter Image Link">Image</mat-label>
+    <input matInput type="text" id="image" formControlName="image" 
+           [appHighlightOnFocus]="'lightblue'" />
+  </mat-form-field>
+
+  <!-- Submit and Back Buttons -->
+  <div class="button-group">
+    <button mat-raised-button color="primary" matTooltip="Submit Button" type="submit">Submit</button>
+    <button mat-raised-button color="tertiary" type="button" matTooltip="Back To List Module" 
+            (click)="navigateToFlagList()">Back to List</button>
   </div>
-
-  <!-- Submit Button -->
-  <button type="submit">Submit</button>
-
-  <!-- Back Button -->
-  <button type="button" (click)="navigateToFlagList()">Back to List</button>
 </form>
+
 <div *ngIf="error" class="error">{{ error }}</div>

@@ -4,8 +4,12 @@ import {NgIf} from "@angular/common";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import { CountryFlagService } from '../services/country-flag.service';
 import { Flag } from '../Shared/Models/flag';
-import { AutoFocusDirective } from '../directives/auto-focus.directive';
 import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.directive';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -14,7 +18,8 @@ import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.dire
   imports: [
     FormsModule,
     NgIf,
-    ReactiveFormsModule, AutoFocusDirective, HighlightOnFocusDirective
+    ReactiveFormsModule, HighlightOnFocusDirective, MatLabel, MatFormFieldModule, MatTooltipModule,
+    MatCheckboxModule, MatButtonModule, MatInput
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.scss'

@@ -1,8 +1,28 @@
-<div *ngIf="flag" class="x">
-    <p>country: {{flag.country}}</p>
-    <p>Id: {{flag.id}}</p>
-    <p>Material: {{flag.material}}</p>
-    <p>Size: {{flag.size}}</p>
-    <p>IsinStock: {{flag.isInStock}}</p>
-    <img ngSrc="{{flag.image}}" height="120" width="200">
-</div>
+<mat-card *ngIf="flag" class="flag-card">
+    <mat-card-header class="mat-card-header">
+      <mat-card-title class="mat-card-title">
+        <mat-icon>flag</mat-icon>
+        Country: {{flag.country}}
+      </mat-card-title>
+      <mat-card-subtitle class="mat-card-subtitle">
+        <mat-icon>badge</mat-icon>
+        Id: {{flag.id}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="mat-card-content">
+      <p>
+        <mat-icon>category</mat-icon>
+        Material: {{flag.material}}
+      </p>
+      <p>
+        <mat-icon>aspect_ratio</mat-icon>
+        Size: {{flag.size}}
+      </p>
+      <p [style.color]="flag.isInStock ? 'green' : 'red'">
+        <mat-icon>{{flag.isInStock ? 'check_circle' : 'cancel'}}</mat-icon>
+        In Stock: {{flag.isInStock ? 'Yes' : 'No'}}
+      </p>
+      <img ngSrc="{{flag.image}}" height="120" width="200" alt="Flag">
+    </mat-card-content>
+  </mat-card>
+  

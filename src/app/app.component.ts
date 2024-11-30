@@ -3,13 +3,14 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {JsonPipe, NgForOf, NgIf, NgStyle} from "@angular/common";
 import { FlagListComponent } from './flag-list/flag-list.component';
 import { FlagListItemComponent } from "./flag-list-item/flag-list-item.component";
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, MatButtonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
